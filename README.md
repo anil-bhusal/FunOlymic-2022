@@ -5,7 +5,7 @@ The City of Bayjing won the bid to host the next FunOlympic Games in 2022. The F
 A user-centric FunOlympic web application will be delivered to the client that will webcast all of FunOlympic's games, and users can watch the games from any location at any time.
 
 ## Functionality
-### Functional Requirement 
+### Functional Functionality 
 * User Panel
   a.	Registration: User should be able to register to the site with Username, Email, Password, and Confirm-Password. 
   b.	Login: User should be able to access the site with valid Username and Password. Users can also login with their Google account. User can reset their password.
@@ -16,7 +16,7 @@ A user-centric FunOlympic web application will be delivered to the client that w
   a.	Admin panel should contain view user interaction, and reset password etc. 
   b.	Content (game video, news, schedule etc.) managed by admin.
 
-### Non-Functional Requirement
+### Non-Functional Functionality
 * Unauthorized users to access the system should be avoided. Non-user should not allow to watch games.
 * The site should be user-friendly and responsive to all screen sizes. 
 * System should perform smoothly and should be reliable. 
