@@ -5,24 +5,37 @@ The City of Bayjing won the bid to host the next FunOlympic Games in 2022. The F
 A user-centric FunOlympic web application will be delivered to the client that will webcast all of FunOlympic's games, and users can watch the games from any location at any time.
 
 ## Functionality
-### Functional Requirement 
-* User Panel
-  a.	Registration: User should be able to register to the site with Username, Email, Password, and Confirm-Password. 
-  b.	Login: User should be able to access the site with valid Username and Password. Users can also login with their Google account. User can reset their password.
-  c.	After login, users can search, select and watch game. Additionally, users will be allowed to like/dislike and comment on game. User can change their password as well.          Futhermore, users can watch News and schedule related to the FunOlympic games.
-  d.	Logout: Users should be able to logout from the system.
-  e.	Security Feature like CAPTCHA, Password Strength Checker, Form Validation, and Email Verification etc. 
-* Admin Panel
-  a.	Admin panel should contain view user interaction, and reset password etc. 
-  b.	Content (game video, news, schedule etc.) managed by admin.
+* UserSite
+  * Secure Register with form validation, captcha, password strength checker and email verification
+  * Log in (with username and password) with form validation and captcha 
+  * Google login
+  * User landing page
+  * Games video
+  * Likes/Dislikes on games video
+  * Comment on games video
+  * Watch news
+  * Search games
+  * Watch schedule
+  * Change password
+  * Logout
+  * Forgot password 
 
-### Non-Functional Requirement
-* Unauthorized users to access the system should be avoided. Non-user should not allow to watch games.
-* The site should be user-friendly and responsive to all screen sizes. 
-* System should perform smoothly and should be reliable. 
-* System should be open door for maintainability.
-* The system should be secured by implementing different security.
-* The system color and theme should implement as per the client.
+* AdminSite
+  * Login
+  * Admin Dashboard
+  * Users list
+  * Remove users feature
+  * Games list
+  * Add games
+  * Remove games
+  * News list
+  * Add news
+  * Remove/update news
+  * Schedule list
+  * Add schedule
+  * Remove/update schedule
+  * Change users password
+  * Logout and more
 
 
 ## Tool, Programming language and Technique used to develop this project
