@@ -1,0 +1,162 @@
+{% extends "base.html"%}
+{% load static %}
+{% block content %}
+
+<header role="banner" class="sticky-top">
+  <div class="banner" style="    border-bottom: 1px solid #00000026;">
+    <h1 style="font-size: 22px; color: #267163;" class="mr-3"> <a href="/home" style="text-decoration: none;">&nbsp;
+        FunOlympic</a></h1>
+    <form action="{% url 'search_games' %}" method="get">
+      <div class="form-group text-center">
+        <div id="custom-search-input">
+          <div class="input-group col-md-12">
+            {% csrf_token %}
+            <input type="text" name="q" class="search-query form-control" placeholder="Search Games"
+              style="border:solid 2px #267163; padding: 0 350px 0 10px;" />
+            <span class="input-group-btn">
+              <button class="btn btn-danger" type="button">
+                <span class=" fa fa-search" style="color: #267163;"></span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <ul class="utilities mr-5 font-weight-bold mt-2" style="display: flex; align-items: center;">
+      <li class="users mr-4">Welcome back, {{request.user.username}}
+      </li>
+      <div class="dropdown dropdown-profile">
+        <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="avatar avatar-sm"
+            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+            style="width: 44px; height: 44px; border-radius: 50%;">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li class="logout warn dropdown-item">
+            <form action="{% url 'logout' %} " method="post">
+              {% csrf_token %}
+              <button type="submit" value="Logout" style="margin-left: 10px; font-weight: bold;"><b>LOGOUT</b></button>
+            </form>
+          </li>
+          <li class="chage-password dropdown-item"><a href="{% url 'changepass' %}"
+            style="color:#267163 !important; margin-left: -8px; text-decoration: none; font-weight: bold;">
+              Change Password </a></li>
+        </div>
+      </div>
+    </ul>
+  </div>
+
+  <div id="products" class="banner" style="background: white;">
+    <div class="container-fluid">
+      <div class="row py-3">
+        <div class="col-12 mx-auto">
+          <div class="hello" style="text-align: center;">
+            <img src= "static\img/Red_circle.gif" style=" position: absolute; left: 43.3%; top: 22%; height: 20px; " class="livegif">
+            <button type="button" class="button"
+              style="top:-1%; background-color: #267163;  color: #fff;  border:none;   border-radius:10px;   padding:6px;  min-height:30px;   min-width: 100px;">
+              <a href="/home">All Games</a></button> &nbsp;
+            {% for Gametype in gametypes %}
+            <button type="button" class="button"
+              style="top:-1%;  background-color: #267163;  color: #fff;  border:none;   border-radius:10px;   padding:6px;  min-height:30px;   min-width: 100px;">
+              <a href="?gametype={{Gametype.id}}">{{Gametype.name}}</a></button>&nbsp;
+            {% endfor %}&nbsp;
+            <button type="button" class="button"
+              style="top:-1%; background-color: #267163;  color: #fff;  border:none;   border-radius:10px;   padding:6px;  min-height:30px;   min-width: 100px;">
+              <a href="/news" target="" >News</a></button> &nbsp;
+            <button type="button" class="button"
+              style="top:-1%; background-color: #267163;  color: #fff;  border:none;   border-radius:10px;   padding:6px;  min-height:30px;   min-width: 100px;">
+              <a href="/schedule" target="" >Schedule</a></button> &nbsp;
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main role="main">
+  <div class="video">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">          
+          <video title="1" id="bgvid" autoplay loop muted>
+            {% for cont in conDesc %}
+            <source src="{{cont.video.url}}" 
+              type="video/webm">Your browser does not support the video tag.
+              {% endfor %}
+          </video>
+          <div class="carousel-caption d-none d-md-block">
+            <h6>Football Match</h6>
+            <h1>There will be interested Football match between the teams.</h1>
+            <span>FunOlympic 2022 - City of Bayjing</span>
+          </div>          
+        </div>
+      </div>
+    </div>
+    <div class="overlay">
+    </div>
+  </div>
+
+  <h1 class="mt-5 mb-3" style="font-size: 27px; font-weight: bold; margin-left: 20px; color: #267163;">Latest FunOlympic 2022 Games
+  </h1>
+  <div class="row mx-auto videos">
+    {% for content in contents %}
+    <div class="col-md-3 mb-5">
+      <div class="card h-100" id={{content.id}}>
+        <a href="/description/{{content.id}}" class="image-box">
+          <img src="{{content.image.url}}" class="card-img-top" alt="..." style="height: 250px; object-fit: fill;">
+        </a>
+        <div class="card-body">
+          <a href="/description/{{content.id}}" style="text-decoration: none;">
+            <h5 class="card-title">
+              <p class="card-name" style="color: #267163; font-size: 24px">{{content.title}}</p>
+            </h5>
+          </a>
+          <p class="card-text"><b style="color: black !important;">{{content.desc}}</b></p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <h1 class="mb-4 newsdesc" style="font-size: 27px; font-weight: bold; margin-left: 20px; color: #267163; padding-top: 20px;">Latest News of FunOlympic 2022 Games
+  </h1>
+  <div class="row mx-auto videos ">
+      {% for new in news %}
+    <div class="col-md-3 mb-5">
+      <div class="card h-100" id={{new.id}}>
+        <a href="/newsdesc/{{new.id}}" class="image-box">
+          <img src="{{new.image.url}}" class="card-img-top" alt="..." style="height: 250px; object-fit: fill;">
+        </a>
+        <div class="card-body">
+          <a href="/newsdesc/{{new.id}}" style="text-decoration: none;">
+            <h5 class="card-title">
+              <p class="card-name" style="color: #267163; font-size: 24px">{{new.title}}</p>
+            </h5>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+
+<div class="very-last-footer">
+</div>
+
+<div class="last-footer" style="padding-top: 7.5px;">
+  <div class="container">
+    <div class="left">
+      <p style="color: #267163"> &copy; FunOlympic 2022 &nbsp; - 2022 All rights reserved.</p>
+    </div>
+    <div class="right">
+      <p style="color: #267163">Site by: <a href="http://aneelbhusal.com.np"> <strong>Anil Bhusal</strong></p></a>
+    </div>
+  </div>
+</div>
+
+<div class="very-last-footer">
+</div>
+
+
+{% endblock %}

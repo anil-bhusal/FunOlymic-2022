@@ -1,0 +1,84 @@
+{% extends "base.html"%} {% load static %} {% block content %}
+
+<section id="home">
+  <div class="container">
+    <div class="row">
+
+      <!-- Sign Up -->
+
+      <div class="col-md-12">
+
+        <div class="card login-form">
+          <div class="card-body">
+            <h3 class="card-title text-center">
+              Register in to Fun Olympic
+            </h3>
+            <div class="card-text">
+              {% if messages %} {% for message in messages %}
+              <div class="alert alert-info ">{{ message }}</div>
+              {% endfor %} {% endif %} {% if form.errors %}
+              <div class="alert alert-primary" role="alert">{{error}}</div>
+              {% endif %}
+
+              <form action="#" method="post" name="reg" class="pt-5">
+                {% csrf_token %}
+
+                <!-- to error: add class "has-danger" -->
+                <div class="form-group">
+                  <label for="username">User Name</label>
+                  <input type="text" name="username" class="form-control form-control-sm" id="exampleUserName" required
+                    placeholder="username" />
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" name="email" class="form-control form-control-sm" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" required placeholder="example@gmail.com" />
+                </div>
+
+                <div class="form-group field">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password" class="pr-password form-control form-control-sm"
+                    required placeholder="your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase and lowercase letter, at least one 
+                                                special characters and at least 8 characters long" />
+                  <div id="pswmeter" class="mt-3"></div>
+                  <div id="pswmeter-message" class="mt-3" style="
+                        color: green;
+                        font-size: 12px;
+                        font-weight: bold;
+                        text-align: center;
+                      "></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword2">Confirm Password</label>
+                  <input type="password" name="conPassword" class="form-control form-control-sm"
+                    id="exampleInputPassword1" required placeholder="Re-type password" />
+                </div>
+
+                <div class="input-group">
+                  <script src="https://www.google.com/recaptcha/api.js"></script>
+                  <div class="g-recaptcha" data-sitekey="6LffCGkgAAAAAHD33gXIYcWLoD44KF0yHid-PHKS" required></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                  Sign up
+                </button>
+
+                <div class="sign-up mt-2">
+                  Already have an account?
+                  <a href="{%url 'login_attempt'%}">Sign in</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "include.html"%}
+{% load static %}
+{% block content %}
+
+<div class="page-wrap">
+    <!-- header -->
+    <header class="header header__style-02">
+        <div class="container">
+            <div class="header__logo"><a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt=""
+                        style="margin-top: -15px;" /></a></div>
+            <div class="header__toogleGroup">
+                <div class="header__chooseLanguage">
+                    <!-- dropdown -->
+                    <div class="dropdown" data-init="dropdown"><a class="dropdown__toggle" href="javascript:void(0)">EN
+                            <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <div class="dropdown__content" data-position="right">
+                            <ul class="list-style-none">
+                                <li><a href="#">EN</a></li>
+                            </ul>
+                        </div>
+                    </div><!-- End / dropdown -->
+                </div>
+            </div>
+            <!-- consult-nav -->
+            <nav class="consult-nav">
+                <!-- consult-menu -->
+                <ul class="consult-menu">
+                    <li class="current-menu-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="menu-item-has-children"><a href="{% url 'index' %}" style="color:#267163;">About</a></li>
+                    <li class="menu-item-has-children"><a href="{% url 'index' %}" style="color:#267163;">Schedule</a>
+                    </li>
+                    <li class="menu-item-has-children"><a href="{% url 'index' %}" style="color:#267163;">News</a></li>
+                    <li class="menu-item-has-children"><a href="{% url 'index' %}" style="color:#267163;">Contact</a>
+                    </li>
+                    <li class="menu-item-has-children"><a href="{% url 'login_attempt' %}"
+                            style="color:#267163;">Login</a></li>
+                </ul><!-- consult-menu -->
+                <div class="navbar-toggle"><span></span><span></span><span></span></div>
+            </nav><!-- End / consult-nav -->
+        </div>
+    </header><!-- End / header -->
+    <br>
+    <br>
+    <br>
+    <section class="videodesc" style="padding-top: 30px !important;">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <main role="main">
+                    <div class="desc" style="margin-left: 36px !important">
+                        <div class="container">
+                            <h2 class="card-title shak" style="color: #267163;">{{new.title}}</h2>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="descri">
+                                        <div class="card mx-auto mb-5" id={{new.id}} style="width: 80%">
+                                            <img src="{{new.image.url}}" alt="Photo" style="margin-left:46px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text desc mt-2" style="padding: 35px 24px 40px 24px; text-align: justify;">
+                                <b style="color: #267163; font-size: 18px; font-weight: bold;">{{new.news}}</b> <br> <br>
+                                <b style="color: #267163; font-size: 18px; font-weight: bold;">{{new.news2}}</b>
+                            </p>
+                        </div>
+                    </div>
+
+
+                </main>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <main role="main">
+                    <h3 class="pt-2" style="font-size: 27px; font-weight: bold; color: #267163;">Suggested FunOlympics
+                        Game News</h3> <br>
+                    <div class="xs">
+                        {% for cont in newsDesc %}
+                        <div class="card h-100 mb-5" style="width:90%">
+                            <a href="/latestnews/{{cont.id}}" class="image-box">
+                                <img src="{{cont.image.url}}" class="mr-3" alt="..."
+                                    style="width: 150px; height:100px; object-fit: cover;">
+                            </a>
+                            <div class="media-body" style="margin-top: -91px;">
+                                <p class="mt-0"
+                                    style="margin-left: 165px; font-size: 19px; font-weight: bold; color: #267163;">
+                                    {{cont.title}}
+                                </p>
+                            </div>
+
+                            <p class="mt-0" style="margin-left: 165px; font-size: 10px;">{{cont.date}}</p>
+                            <br>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </main>
+
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+
+
+{% endblock %}

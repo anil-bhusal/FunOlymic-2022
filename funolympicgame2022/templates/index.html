@@ -1,0 +1,335 @@
+{% extends "include.html"%}
+{% load static %}
+{% block content %}
+
+<!-- Content-->
+<div class="md-content">
+	<!-- slider -->
+	<div class="slider">
+		<!-- carousel__element owl-carousel -->
+		<div class="carousel__element owl-carousel"
+			data-options='{"items":1,"loop":true,"dots":false,"nav":false,"margin":0, "autoplay": true, "autoplayTimeout": 3000}'>
+			<div class="slider__item" style="background-image: url('static/img/fb.jpg'); object-fit: cover;">
+				<div class="md-tb">
+					<div class="md-tb__cell">
+						<div class="slider__content">
+							<div class="container">
+								<h2>FunOlympic Games 2022</h2>
+								<h2 style="color: white; font-size:40px;">The City of Bayjing</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="slider__item" style="background-image: url('static/img/basketball.jpg'); object-fit: cover;">
+				<div class="md-tb">
+					<div class="md-tb__cell">
+						<div class="slider__content">
+							<div class="container">
+								<h2>FunOlympic Games 2022</h2>
+								<h5 style="color: white; font-size:40px;">The City of Bayjing</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="slider__item" style="background-image: url('static/img/volley.png'); object-fit: cover;">
+				<div class="md-tb">
+					<div class="md-tb__cell">
+						<div class="slider__content">
+							<div class="container">
+								<h2>FunOlympic Games 2022</h2>
+								<h5 style="color: white; font-size:40px;">The City of Bayjing</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- End / carousel__element owl-carousel -->
+	</div><!-- End / slider -->
+
+	<!-- Games-->
+	<!-- Section -->
+	<section class="md-section" style="background-color:#f7f7f7;padding:0;">
+		<div class="container">
+			<div class="textbox-group">
+				<div class="row">
+					<div class="col-md-4 col-lg-4 ">
+
+						<!-- textbox -->
+						<div class="textbox">
+							<div class="textbox__image"><a href="{% url 'login_attempt' %}"><img
+										src="static\img/Capture.png" alt="" /></a>
+							</div>
+							<div class="textbox__body">
+								<h2 class="textbox__title"><a href="{% url 'login_attempt' %}">Football</a></h2>
+								<div class="textbox__description">BRA v ESP - Men's Gold Medal Match - Football | Tokyo
+									2020 Replays.</div>
+							</div>
+						</div><!-- End / textbox -->
+					</div>
+					<div class="col-md-4 col-lg-4 ">
+						<!-- textbox -->
+						<div class="textbox">
+							<div class="textbox__image"><a href="{% url 'login_attempt' %}"><img
+										src="static\img/basketbal.png" alt="" /></a>
+							</div>
+							<div class="textbox__body">
+								<h2 class="textbox__title"><a href="{% url 'login_attempt' %}">Basketball</a></h2>
+								<div class="textbox__description">Angel McCoughtry: Double Olympic basketball champion
+									and multi-talented businessperson.</div>
+							</div>
+						</div><!-- End / textbox -->
+					</div>
+					<div class="col-md-4 col-lg-4 ">
+						<!-- textbox -->
+						<div class="textbox">
+							<div class="textbox__image"><a href="{% url 'login_attempt' %}"><img
+										src="static\img/voll.png" alt="" /></a>
+							</div>
+							<div class="textbox__body">
+								<h2 class="textbox__title"><a href="{% url 'login_attempt' %}">Volleyball</a></h2>
+								<div class="textbox__description">History of beach volleyball and how it’s different
+									from indoor volleyball</div>
+							</div>
+						</div><!-- End / textbox -->
+					</div>
+					<h2 style="color: balck; text-align: center; margin-left: 166px;"> <a
+							href="{% url 'login_attempt' %}" style="color: #267163;">Login</a> to the system to explore
+						more games</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End / Section -->
+
+
+	<!-- About-->
+	<!-- Section -->
+	<section class="md-section" id="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 ">
+					<!-- title-01 -->
+					<div class="title-01 title-01__style-03 md-text-left">
+						<h6 class="title-01__subTitle">about</h6>
+						<h2 class="title-01__title">"Together for a Shared Future" - FunOlympic 2022</h2>
+						<div style="color: black;">The modern FunOlympic Games are the leading international sporting
+							events featuring summer and winter sports competitions in which thousands of athletes from
+							around the world participate in a variety
+							of competitions.</div>
+					</div><!-- End / title-01 -->
+					<div class="row">
+						<div class="col-sm-4 ">
+							<!-- box-number -->
+							<div class="box-number">
+								<div class="box-number__number">
+									<h2 class="js-counter" data-counter-time="2000" data-counter-delay="10">99</h2>
+								</div>
+								<div class="box-number__description">Games</div>
+							</div><!-- End / box-number -->
+						</div>
+						<div class="col-sm-4 ">
+							<!-- box-number -->
+							<div class="box-number">
+								<div class="box-number__number">
+									<h2 class="js-counter" data-counter-time="2000" data-counter-delay="10">1200</h2>
+								</div>
+								<div class="box-number__description">Average Viewers</div>
+							</div><!-- End / box-number -->
+						</div>
+						<div class="col-sm-4 ">
+							<!-- box-number -->
+							<div class="box-number">
+								<div class="box-number__number">
+									<h2 class="js-counter" data-counter-time="2000" data-counter-delay="10">45</h2>
+								</div>
+								<div class="box-number__description">Supportive Brands</div>
+							</div><!-- End / box-number -->
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 ">
+					<div class="js-consult-slider">
+						<!-- carousel__element owl-carousel -->
+						<div class="carousel__element owl-carousel"
+							data-options='{"items":1,"loop":true,"dots":false,"nav":false,"margin":30,"responsive":{"0":{"items":2},"576":{"items":3},"992":{"items":1}}}'>
+							<div class="image-full"><img src="static\img/p1.png" alt=""></div>
+						</div><!-- End / carousel__element owl-carousel -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End / Section -->
+
+	<!-- schedule-->
+	<!-- Section -->
+	<section class="md-section" id="schedule" style="padding-bottom:0;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+					<h6 class="title-01__subTitle" style="text-align: center;">Schedule</h6>
+					<!-- title-01 -->
+					<div class="title-01" style="margin-bottom:50px;">
+						<h2 class="title-01__title">Upcoming Game Schedule</h2>
+					</div><!-- End / title-01 -->
+
+				</div>
+			</div>
+			<div class="consult-slide">
+
+				<!-- carousel__element owl-carousel -->
+				<div class="carousel__element owl-carousel"
+					data-options='{"loop":true,"dots":true,"nav":false,"margin":30,"responsive":{"0":{"items":1},"992":{"items":2}}}'>
+					{% for sch in schedule %}
+					<!-- testimonial -->
+					<div class="testimonial">
+						
+						<div class="testimonial__info">
+							<h5 class="testimonial__name">{{sch.gamename}}</h5><span
+								class="testimonial__position">{{sch.date}}</span>
+						</div>
+						<div class="testimonial__content">
+							<div class="testimonial__text">
+								{{sch.game1}}<br>
+								{{sch.game2}} <br>
+								{{sch.game3}} 
+							</div>
+						</div>
+						
+					</div><!-- End / testimonial -->
+					{% endfor %}
+				</div><!-- End / carousel__element owl-carousel -->
+
+			</div>
+		</div>
+	</section>
+	<!-- End / Section -->
+
+	<!-- Latest news -->
+	<!-- Section -->
+	<section class="md-section consult-background" id="blog">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+					<h6 class="title-01__subTitle" style="text-align: center;">News</h6>
+					<!-- title-01 -->
+					<div class="title-01">
+						<h2 class="title-01__title">Latest News</h2>
+					</div><!-- End / title-01 -->
+				</div>
+			</div>
+			<!-- carousel__element owl-carousel -->
+			<div class="carousel__element owl-carousel"
+				data-options='{"loop":false,"dots":false,"nav":true,"margin":30,"responsive":{"0":{"items":1},"768":{"items":2},"992":{"items":3}}}'>
+				<!--  -->
+				{% for new in news %}
+
+				<a href="/latestnews/{{new.id}}" class="image-box">
+					<div class="post-01__media"><a href="/latestnews/{{new.id}}"><img src="{{new.image.url}}" alt="" /></a>
+				</a>
+			</div>
+			<div>
+				<ul class="post-01__categories">
+					<li><a href="/latestnews/{{new.id}}">games</a></li>
+				</ul>
+				<h2 class="post-01__title"><a href="/latestnews/{{new.id}}">{{new.title}}</a></h2>
+				<div class="post-01__time">{{new.date}}</div>
+				<div class="post-01__note">{{new.user}}</div>
+			</div>
+
+			{% endfor %}
+
+		</div><!-- End / carousel__element owl-carousel -->
+	</section>
+	<!-- End / Section -->
+
+	<!-- Our Sponser-->
+	<!-- Section -->
+	<section class="md-section" id="support">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+					<h6 class="title-01__subTitle" style="text-align: center;">Sponser</h6>
+					<!-- title-01 -->
+					<div class="title-01">
+						<h2 class="title-01__title">Our Sponser</h2>
+					</div><!-- End / title-01 -->
+				</div>
+			</div>
+			<!-- carousel__element owl-carousel -->
+			<div class="carousel__element owl-carousel"
+				data-options='{"loop":true,"dots":false,"nav":true,"margin":30,"responsive":{"0":{"items":2},"768":{"items":3},"992":{"items":5}}}'>
+				<!--  -->
+				<div>
+					<div class="brand-01__image"><img src="static\img/brands/1.png" alt="" /></div>
+				</div><!-- End /  -->
+				<!--  -->
+				<div>
+					<div class="brand-01__image"><img src="static\img/brands/2.png" alt="" /></div>
+				</div><!-- End /  -->
+				<!--  -->
+				<div>
+					<div class="brand-01__image"><img src="static\img/brands/3.png" alt="" /></div>
+				</div><!-- End /  -->
+				<!--  -->
+				<div>
+					<div class="brand-01__image"><img src="static\img/brands/4.png" alt="" /></div>
+				</div><!-- End /  -->
+				<!--  -->
+				<div>
+					<div class="brand-01__image"><img src="static\img/brands/5.png" alt="" /></div>
+				</div><!-- End /  -->
+			</div><!-- End / carousel__element owl-carousel -->
+		</div>
+	</section>
+	<!-- End / Section -->
+
+
+	<!-- Contact us-->
+	<!-- Section -->
+	<section id="contact" class="md-section md-skin-dark js-consult-form"
+		style="background-image:url(&quot;assets/img/backgrounds/1.jpg&quot;); margin-bottom: 278px;">
+		<div class="md-overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-0 offset-sm-0 offset-md-0 offset-lg-2 ">
+					<h6 class="title-01__subTitle" style="text-align: center;">Contact</h6>
+					<!-- title-01 -->
+					<div class="title-01 title-01__style-02">
+						<h2 class="title-01__title">Contact With Us via Hot Line</h2>
+						<div>We are available 9 to 5 a day. Please contact us on below number </div>
+					</div><!-- End / title-01 -->
+					<div class="consult-phone">(+88) 242 2323 777</div>
+				</div>
+			</div>
+			<!-- form-01 -->
+			<div class="form-01 consult-form js-consult-form__content">
+				<h2 class="form-01__title">Give Us Your Feedback</h2>
+				<form class="form-01__form" method="POST">
+					{% csrf_token %}
+					<div class="form__item form__item--03">
+						<input type="text" name="name" placeholder="Your name" />
+					</div>
+					<div class="form__item form__item--03">
+						<input type="text" name="phone" placeholder="Your Phone" />
+					</div>
+					<div class="form__item form__item--03">
+						<input type="email" name="email" placeholder="Your Email" />
+					</div>
+					<div class="form__item">
+						<textarea rows="3" name="message" placeholder="Your message"></textarea>
+					</div>
+					<button class="btn btn-primary btn-block mb-5" type="submit"
+						style="background-color: #267163; font-weight: bold; border: none;">Send Message</button>
+				</form>
+			</div><!-- End / form-01 -->
+		</div>
+	</section>
+	<!-- End / Section -->
+</div>
+<!-- End / Content-->
+
+{% endblock %}

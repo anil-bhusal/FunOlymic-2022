@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% block title %} Change Password {% endblock title %}</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600;700&display=swap");
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Raleway", sans-serif;
+    }
+
+    .global-container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f5f5f5;
+
+    }
+
+    .signup-form {
+      width: 450px;
+      margin: 20px;
+      float: right;
+
+    }
+
+    form {
+      /* padding-top: 10px; */
+      font-size: 14px;
+      /* margin-top: 30px; */
+      position: relative;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .alert-success,
+    .alert-warning,
+    .alert-info,
+    .alert-danger {
+      background-repeat: no-repeat;
+      background-position: 10px center;
+      height: 20px;
+      text-transform: uppercase;
+      font-size: 11px;
+      line-height: 22px;
+      margin-bottom: 20px;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      padding-left: 50px;
+
+    }
+
+    .alert-success {
+      background-color: #EBF8D6;
+      border: 1px solid #A6DD88;
+      color: #539B2D;
+
+    }
+
+    .alert-warning {
+      background-color: #FFECE6;
+      border: 1px solid #FF936F;
+      color: #842100;
+    }
+
+    .alert-info {
+      background-color: #D3EEF1;
+      border: 1px solid #81CDD8;
+      color: #369CAB;
+    }
+
+    .alert-danger {
+      background-color: #FFFBCC;
+      border: 1px solid #FFF35E;
+      color: #C69E00;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="global-container">
+    <div class="card signup-form">
+      <div class="card-body">
+        <h3 class="card-title text-center">
+          Change Password
+        </h3>
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="card-text">
+
+          <form method="post">
+            {% csrf_token %}
+
+
+            <div class="form-group" style="color: #267163; font-weight: 600;">
+              {% for fm in form %}
+              {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br>
+              <br>
+              {% endfor %}
+
+
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" style="background-color:#267163;">
+              Change Password</button>
+          </form>
+          <div class="text-center" style="margin-top: 5px;">
+            <a href="{% url 'home' %} ">Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

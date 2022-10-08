@@ -1,0 +1,76 @@
+{% extends "base.html"%} 
+{% load static %} {% block content %}
+{% load socialaccount %}
+
+<section id="home">
+  <div class="container">
+    <div class="row">
+
+      <!-- Sign Up -->
+
+      <div class="col-md-12">
+        <div class="card login-form">
+          <div class="card-body">
+            <h3 class="card-title text-center">Log in to Fun Olympic</h3>
+
+            {% if messages %} {% for message in messages %}
+            <div class="alert alert-info" mb-3>{{ message }}</div>
+            {% endfor %} {% endif %}
+
+            <div class="card-text">
+              <form method="post" class="pt-5">
+                {% csrf_token %}
+                <!-- to error: add class "has-danger" -->
+                <div class="form-group">
+                  <label for="exampleInputEmail1">User Name</label>
+                  <input type="text" name="username" class="form-control form-control-sm" id="exampleUserName" required
+                    placeholder="username" />
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" name="password" class="form-control form-control-sm" id="exampleInputPassword1"
+                    required placeholder="password" />
+                </div>
+
+                <div class="input-group">
+                  <script src="https://www.google.com/recaptcha/api.js" required></script>
+                  <div class="g-recaptcha" data-sitekey="6LffCGkgAAAAAHD33gXIYcWLoD44KF0yHid-PHKS"></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                  Sign in
+                </button>
+
+                <div class="google btn btn-primary btn-block">
+                  <a href="{% provider_login_url 'google' %}" class="login-with-google-btn">
+                    <i class="fa fa-google fa-fw"></i> Login with Google
+                  </a>
+                </div>
+
+                <a href="{% url 'password_reset' %}"
+                  style="float: right; font-size: 12px; color: #267163; font-weight: 500; margin: 10px 0">Forgot
+                  password?</a>
+
+                <div class="sign-up">
+                  <div class="reminder" style="margin-top: 19px;">
+                    Don't have an account?
+                    <a href="{%url 'register_attempt'%}">Create One</a>
+                  </div>
+
+                  <div class="reminder" style="margin-top: 6px;">
+                    Are you an admin?
+                    <a href="./admin/login/?next=/admin/">Login Here</a>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

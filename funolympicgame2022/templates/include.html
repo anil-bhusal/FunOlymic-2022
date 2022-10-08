@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FunOlympic 2022</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Fonts-->
+    <link rel="stylesheet" type="text/css" href="{% static '/fonts/fontawesome/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/fonts/themify-icons/themify-icons.css' %}">
+    <!-- Vendors-->
+    <link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap4/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/vendors/magnific-popup/magnific-popup.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/vendors/owl.carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/vendors/_jquery/jquery.min.css' %}">
+    <!-- App & fonts-->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext ">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+</head>
+
+<body>
+    <div class="page-wrap">
+        <!-- header -->
+        <header class="header header__style-02">
+            <div class="container">
+                <div class="header__logo"><a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}"
+                            alt="" style="margin-top: -15px;" /></a></div>
+                <div class="header__toogleGroup">
+                    <div class="header__chooseLanguage">
+                        <!-- dropdown -->
+                        <div class="dropdown" data-init="dropdown"><a class="dropdown__toggle"
+                                href="javascript:void(0)">EN <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <div class="dropdown__content" data-position="right">
+                                <ul class="list-style-none">
+                                    <li><a href="#">EN</a></li>
+                                </ul>
+                            </div>
+                        </div><!-- End / dropdown -->
+                    </div>
+                </div>
+                <!-- consult-nav -->
+                <nav class="consult-nav">
+                    <!-- consult-menu -->
+                    <ul class="consult-menu">
+                        <li class="current-menu-item"><a href="{% url 'index' %}">Home</a></li>
+                        <li class="menu-item-has-children"><a href="#about">About</a></li>
+                        <li class="menu-item-has-children"><a href="#schedule">Schedule</a></li>
+                        <li class="menu-item-has-children"><a href="#blog">News</a></li>
+                        <li class="menu-item-has-children"><a href="#contact">Contact</a></li>
+                        <li class="menu-item-has-children"><a href="{% url 'login_attempt' %}">Login</a></li>
+                    </ul><!-- consult-menu -->
+                    <div class="navbar-toggle"><span></span><span></span><span></span></div>
+                </nav><!-- End / consult-nav -->
+            </div>
+        </header><!-- End / header -->
+
+        {% block content %}
+
+
+        {% endblock %}
+
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="footer__main">
+                <div class="row row-eq-height">
+                    <div class="col-8 col-sm-7 col-md-9 col-lg-3 ">
+                        <div class="footer__item"><a class="consult_logo" href="#">
+                            <p style="color: white;">The modern FunOlympic Games are the leading international sporting events featuring summer and winter sports competitions 
+                                in which thousands of athletes from around the world participate in a variety of competitions.t.
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="col-sm-6 col-md-4 col-lg-3 col-xl-2 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-1 ">
+                        <div class="footer__item">
+
+                            <!-- widget-text__widget -->
+                            <section class="widget-text__widget widget">
+                                <div class="widget-text__content">
+                                    <ul>
+                                        <li><a href="#">Terms of Service</a></li>
+                                        <li><a href="#">Privacy Policy </a></li>
+                                        <li><a href="#">Sitemap </a></li>
+                                        <li><a href="#">Help</a></li>
+                                    </ul>
+                                </div>
+                            </section><!-- End / widget-text__widget -->
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 ">
+                        <div class="footer__item">
+
+                            <!-- widget-text__widget -->
+                            <section class="widget-text__widget widget">
+                                <div class="widget-text__content">
+                                    <ul>
+                                        <li><a href="#blog">News </a></li>
+                                        <li><a href="#schedule">Schedule </a></li>
+                                        <li><a href="#contact">Contact Us </a></li>
+                                        <li><a href="#support">Support</a></li>
+                                    </ul>
+                                </div>
+                            </section><!-- End / widget-text__widget -->
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2 col-xl-2 ">
+                        <div class="footer__item">
+
+                            <!-- form-sub -->
+                            <div class="form-sub">
+                                <h4 class="form-sub__title">Our Newsletter</h4>
+                                <form class="form-sub__form">
+                                    <div class="form-item">
+                                        <input class="form-control" type="email"
+                                            placeholder="Enter Your Email Address..." />
+                                    </div>
+                                    <div class="form-submit">
+                                        <button class="form-button" type="submit"><i class="fa fa-paper-plane"
+                                                aria-hidden="true"></i></button>
+                                    </div>
+                                </form>
+                            </div><!-- End / form-sub -->
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-2 col-xl-2  consult_backToTop">
+                        <div class="footer__item"><a href="#" id="back-to-top"> <i class="fa fa-angle-up"
+                                    aria-hidden="true"> </i><span>Back To Top</span></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright" >2022 &copy; Copyright FunOlympic - The City of Bayjing (Developer: Anil Bhusal)</div>
+        </footer><!-- End / footer -->
+
+    </div>
+    <!-- Vendors-->
+    <script type="text/javascript" src="{% static '/vendors/jquery/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/vendors/imagesloaded/imagesloaded.pkgd.js' %}"></script>
+    <script type="text/javascript" src="{% static '/vendors/isotope-layout/isotope.pkgd.js' %}"></script>
+    <script type="text/javascript" src="{% static '/vendors/jquery.countdown/jquery.countdown.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/vendors/jquery.countTo/jquery.countTo.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/vendors/jquery.countUp/jquery.countup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/vendors/jquery.matchHeight/jquery.matchHeight.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/vendors/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/vendors/masonry-layout/masonry.pkgd.js' %}"></script>
+    <script type="text/javascript" src="{% static '/vendors/owl.carousel/owl.carousel.js' %}"></script>
+    <script type="text/javascript" src="{% static '/vendors/jquery.waypoints/jquery.waypoints.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/vendors/menu/menu.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/vendors/smoothscroll/SmoothScroll.min.js' %}"></script>
+    <!-- App-->
+    <script src="{% static '/js/mainn.js' %}"></script>
+</body>
+
+</html>

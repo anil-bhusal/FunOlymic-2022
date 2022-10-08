@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<header role="banner" class="sticky-top">
+    <div class="banner" style="    border-bottom: 1px solid rgb(0 0 0 / 15%);">
+        <h1 style="font-size: 22px; color: #267163;" class="mr-3"> <a href="/home" style="text-decoration: none;">&nbsp;
+                FunOlympic</a></h1>
+        <form action="{% url 'search_games' %}" method="get">
+            <div class="form-group text-center">
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        {% csrf_token %}
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search Games"
+                            style="border:solid 2px #267163; padding: 0 350px 0 10px;" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button">
+                                <span class=" fa fa-search" style="color: #267163;"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <ul class="utilities mr-5 font-weight-bold mt-2" style="display: flex; align-items: center;">
+            <li class="users mr-4">Welcome back, {{request.user.username}}
+            </li>
+            <div class="dropdown dropdown-profile">
+                <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <img class="avatar avatar-sm"
+                        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+                        style="width: 44px; height: 44px; border-radius: 50%;">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li class="logout warn dropdown-item">
+                        <form action="{% url 'logout' %} " method="post">
+                            {% csrf_token %}
+                            <button type="submit" value="Logout"
+                                style="margin-left: 10px; font-weight: bold;"><b>LOGOUT</b></button>
+                        </form>
+                    </li>
+                    <li class="chage-password dropdown-item"><a href="{% url 'changepass' %}"
+                            style="color:#267163 !important; margin-left: -8px; text-decoration: none; font-weight: bold;">
+                            Change Password </a></li>
+                </div>
+            </div>
+        </ul>
+    </div>
+</header>
+
+<section class="videodesc" style="margin-top: -60px;">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <main role="main">
+                <div class="desc" style="margin-left: 36px">
+                    <div class="container" id={{content.id}}>
+                        <h2 class="card-title shak" style="color: #267163;">{{content.title}}</h2>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div class="descri">
+                                    <div class="card mx-auto mb-5" id={{content.id}}>
+                                        <video controls>
+                                            <source src="{{content.video.url}}" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="line" style="color: black; width: 100%; height: 2px; background: #267163;">
+                        <p class="card-text desc mt-2"><b
+                                style="color: #267163; font-size: 18px; font-weight: bold;">{{content.desc}}</b></p>
+                        <div class="d-flex flex-row like" style="margin-left: 87%; margin-top: -26px;">
+                            <form method="POST" action="{% url 'like' content.pk %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="next" value="{{ request.path }}">
+                                <button
+                                    style="background-color: transparent; border: none; box-shadow: none; font-size: 28px;"
+                                    type="submit">
+
+                                    <i class="fa fa-thumbs-up" style="color: #267163"><span>{{ content.likes.all.count }}</span></i>
+                                </button>
+                            </form>
+                            &nbsp; &nbsp;
+                            <form method="POST" action="{% url 'dislike' content.pk %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="next" value="{{ request.path }}">
+                                <button
+                                    style="background-color: transparent; border: none; box-shadow: none; font-size: 28px;"
+                                    type="submit">
+                                    <i class="fa fa-thumbs-down" style="color: #267163">
+                                        <span>{{content.dislikes.all.count}}</span></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--comments-->
+                <div class="container">
+                    <div class="commentss" style="margin-left: 68px">
+                        <div class="row mt-5">
+                            <div class="col-lg-6">
+                                <!--display the form-->
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <textarea type="text" name="comment" placeholder="Comment here." cols="40" rows="5"
+                                        style="border: solid 1px #267163;"></textarea>
+                                    <button class="btn btn-primary btn-block mb-5" type="submit"
+                                        style="background-color: #267163; font-weight: bold; border: none;">Comment</button>
+                                </form>
+                                <!--display coment-->
+                                <h2 style="color: lightsalmon; font-weight: bold; font-size: 18px; color: #267163;">
+                                    Comments ({{ post_comments_count }})</h2>
+                                <div class="media-list mt-3 mb-9">
+                                    {% for comment in post_comments %}
+                                    <div class="card"
+                                        style="padding: 10px; box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);">
+                                        <div>
+                                            <img class="avatar avatar-sm mr-4"
+                                                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+                                                style="width: 44px; height: 44px; border-radius: 50%;">
+                                            <div class="media-body" style="margin-left: 65px; margin-top: -46px;">
+
+                                                <div class="small-1">
+                                                    <b style="color: #267163 !important;"> {{comment.user}}</b>
+                                                    <time class="ml-4 opaciy-70 small-1" style="font-size: 11px;">
+                                                        {{comment.date}}</time>
+                                                </div>
+                                                <p style="color: black;"> {{comment.comment}}</p>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                    <br>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <main role="main" class="suggested">
+                <h3 class="pt-2" style="font-size: 27px; font-weight: bold; color: #267163;">Suggested FunOlympics Game
+                </h3> <br>
+                <div class="xs">
+                    {% for cont in conDesc %}
+                    <div class="card h-100 mb-5" style="width:100%">
+                        <a href="/description/{{cont.id}}" class="image-box">
+                            <img src="{{cont.image.url}}" class="mr-3" alt="..."
+                                style="width: 150px; height:100px; object-fit: cover;">
+                        </a>
+                        <div class="media-body" style="margin-top: -91px;">
+                            <p class="mt-0"
+                                style="margin-left: 165px; font-size: 19px; font-weight: bold; color: #267163;">
+                                {{cont.title}}
+                            </p>
+                        </div>
+                        <p class="mt-0" style="margin-left: 165px; font-size: 14px; font-weight: bold; color: black;">
+                            {{cont.desc}}</p>
+                        <p class="mt-0" style="margin-left: 165px; font-size: 10px;">{{cont.date_uploaded}}</p>
+                        <br>
+                    </div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

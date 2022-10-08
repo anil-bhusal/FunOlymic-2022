@@ -1,0 +1,127 @@
+{% extends "base.html"%}
+{% load static %}
+{% block content %}
+
+<header role="banner" class="sticky-top">
+  <div class="banner" style="    border-bottom: 1px solid #00000026;">
+    <h1 style="font-size: 22px; color: #267163;" class="mr-3"> <a href="/home" style="text-decoration: none;">&nbsp;
+        FunOlympic</a></h1>
+    <form action="{% url 'search_games' %}" method="get">
+      <div class="form-group text-center">
+        <div id="custom-search-input">
+          <div class="input-group col-md-12">
+            {% csrf_token %}
+            <input type="text" name="q" class="search-query form-control" placeholder="Search Games"
+              style="border:solid 2px #267163; padding: 0 350px 0 10px;" />
+            <span class="input-group-btn">
+              <button class="btn btn-danger" type="button">
+                <span class=" fa fa-search" style="color: #267163;"></span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <ul class="utilities mr-5 font-weight-bold mt-2" style="display: flex; align-items: center;">
+      <li class="users mr-4">Welcome back, {{request.user.username}}
+      </li>
+      <div class="dropdown dropdown-profile">
+        <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="avatar avatar-sm"
+            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+            style="width: 44px; height: 44px; border-radius: 50%;">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li class="logout warn dropdown-item">
+            <form action="{% url 'logout' %} " method="post">
+              {% csrf_token %}
+              <button type="submit" value="Logout" style="margin-left: 10px; font-weight: bold;"><b>LOGOUT</b></button>
+            </form>
+          </li>
+          <li class="chage-password dropdown-item"><a href="{% url 'changepass' %}"
+            style="color:#267163 !important; margin-left: -8px; text-decoration: none; font-weight: bold;">
+              Change Password </a></li>
+        </div>
+      </div>
+    </ul>
+  </div>
+</header>
+
+<section class="newsdesc">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <main role="main" style="margin-top: 100px !important;">
+                <div class="desc" style="margin-left: 36px !important;">
+                    <div class="container">
+                        <h2 class="card-title shak" style="color: #267163;">{{new.title}}</h2>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div class="descri imageee">
+                                    <div class="card mx-auto mb-5" id={{new.id}} style="width: 80%; border: none;">
+                                        <img src="{{new.image.url}}" alt="Photo" style="margin-left: -37px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-text desc mt-2 newssss" style="padding: 2px 24px 40px 24px; text-align: justify;">
+                            <b style="color: #267163; font-size: 18px; font-weight: bold;">{{new.news}}</b> <br> <br>
+                            <b style="color: #267163; font-size: 18px; font-weight: bold;">{{new.news2}}</b>
+                        </p>
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <main role="main" style="margin-top: 100px;" class="suggested-game">
+                <h3 class="pt-2" style="font-size: 27px; font-weight: bold; color: #267163;">Suggested FunOlympics
+                    Game News</h3> <br>
+                <div class="xs">
+                    {% for cont in newsDesc1 %}
+                    <div class="card h-100 mb-5" style="width:90%">
+                        <a href="/newsdesc/{{cont.id}}" class="image-box">
+                            <img src="{{cont.image.url}}" class="mr-3" alt="..."
+                                style="width: 150px; height:100px; object-fit: cover;">
+                        </a>
+                        <div class="media-body" style="margin-top: -91px;">
+                            <p class="mt-0"
+                                style="margin-left: 165px; font-size: 19px; font-weight: bold; color: #267163;">
+                                {{cont.title}}
+                            </p>
+                        </div>
+
+                        <p class="mt-0" style="margin-left: 165px; font-size: 10px;">{{cont.date}}</p>
+                        <br>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </main>
+
+        </div>
+    </div>
+</section>
+
+
+<div class="very-last-footer">
+</div>
+
+<div class="last-footer" style="padding-top: 7.5px;">
+  <div class="container">
+    <div class="left">
+      <p style="color: #267163"> &copy; FunOlympic 2022 &nbsp; - 2022 All rights reserved.</p>
+    </div>
+    <div class="right">
+      <p style="color: #267163">Site by: <a href="http://aneelbhusal.com.np"> <strong>Anil Bhusal</strong></p></a>
+    </div>
+  </div>
+</div>
+
+<div class="very-last-footer">
+</div>
+
+
+{% endblock %}
