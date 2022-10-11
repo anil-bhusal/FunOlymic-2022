@@ -214,4 +214,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'anil@ismt.edu.np'
-EMAIL_HOST_PASSWORD = 'aneel001'
+EMAIL_HOST_PASSWORD = 'Sweetloli30@'
